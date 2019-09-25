@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Treatment;
 use Illuminate\Http\Request;
+use App\Http\Requests\TreatmentRequest;
 
 class TreatmentController extends Controller
 {
@@ -36,7 +37,7 @@ class TreatmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TreatmentRequest $request)
     {
         
         $treatment = Treatment::create([
@@ -85,7 +86,7 @@ class TreatmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TreatmentRequest $request, $id)
     {
         $treatment               = Treatment::find($id);
         $treatment->name         = $request->name;
